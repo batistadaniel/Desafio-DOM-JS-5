@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 45px;
+        }
+        body {
+            margin-top: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <title>Desafio - DOM JS 5</title>
+</head>
+
+<body>
+    <label for="velocidade">Velocidade:</label>
+    <input type="text" id="velocidade">
+    <p id="msg"></p>
+    <script>
+        let msg = document.getElementById("msg");
+
+        const velocidadeMedia = 60;
+        const velocidadeAmarela = 80;
+
+        document.getElementById("velocidade").addEventListener("input", () => {
+
+            let velocidade = Number(document.getElementById("velocidade").value);
+
+            if (velocidade <= velocidadeAmarela) {
+                msg.innerHTML = "Prossiga";
+                msg.style.color = "green";
+            } else if (velocidade === velocidadeAmarela) {
+                msg.innerHTML = "Reduza a velocidade";
+                msg.style.color = "yellow";
+            } else if (velocidade > velocidadeAmarela) {
+                msg.innerHTML = "Você foi multado";
+                msg.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
